@@ -135,7 +135,7 @@ class NewsletterAdmin extends LeftAndMain {
 	* Called when a draft or sent newsletter is clicked on the left menu and when a new one is added
 	*/
 	public function shownewsletter($params) {
-		if($params instanceof HTTPRequest){
+		if($params instanceof HTTPRequest || $params instanceof SS_HTTPRequest){
 			$params = $params->allParams();
 		}
 		return $this->showWithEditForm( $params, $this->getNewsletterEditForm( $params['ID'] ) );
