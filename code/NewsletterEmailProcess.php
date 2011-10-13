@@ -78,6 +78,7 @@ class NewsletterEmailProcess extends BatchProcess {
 					$e->setSubject( $this->subject );
 					$e->setFrom( $this->from );
 					$e->setTemplate( $this->nlType->Template );
+					$e->populateTemplate( $this->newsletter );
 
 					$nameForEmail = (method_exists($member, "getNameForEmail")) ? $member->getNameForEmail() : false;
 

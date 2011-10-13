@@ -126,7 +126,7 @@ class Unsubscribe_Controller extends Page_Controller {
     */
     function sendmeunsubscribelink( $data) {
 		if(isset($data['Email']) && $data['Email']) {
-			$member = DataObject::get_one("Member", "Email = '".$data['Email']."'");
+			$member = DataObject::get_one("Member", "Email = '".Convert::raw2sql($data['Email'])."'");
 			if($member){
 				if(!$from = Email::getAdminEmail()){
 					$from = 'noreply@'.Director::BaseURL();
